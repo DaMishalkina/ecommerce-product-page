@@ -1,0 +1,58 @@
+@import "src/styles/StyleVariables";
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $primary-color;
+  padding: 24px;
+  z-index: 100;
+}
+.header__label {
+  order: 1;
+}
+.header-button__icon {
+  width: 22px;
+  height: 20px;
+}
+.hamburger-button {
+  order: 0;
+}
+.header-navigation {
+  display: none;
+}
+.header-navigation--opened {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background: $primary-color--hover;
+  padding: 25px;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.header-navigation__button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+.header-navigation__icon {
+  width: 14px;
+  height: 15px;
+}
+
+.header__container {
+  order: 2;
+}

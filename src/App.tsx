@@ -1,9 +1,11 @@
-import './App.css'
+import "./App.css"
+import {Header} from "./components/Header/Header";
+import layoutContent from "./data/layoutContent.json";
 
 function App() {
   return (
       <div className="App">
-          Vite APP
+          <Header label={layoutContent?.shopName} navMenu={layoutContent?.navs} isLogged={true} />
       </div>
   )
 }
