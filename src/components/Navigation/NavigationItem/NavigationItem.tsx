@@ -1,4 +1,5 @@
 import {NavItemType} from "../types/types";
+import "./NavigationItem.scss"
 
 interface Props {
    item: NavItemType
@@ -6,7 +7,7 @@ interface Props {
 
 export const NavigationItem = ({item}: Props) => {
     return (
-        <li>
+        <li className="navigation-list__item">
             {item}
         </li>
     )
