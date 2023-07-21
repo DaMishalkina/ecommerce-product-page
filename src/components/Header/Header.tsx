@@ -1,9 +1,7 @@
-import {useState} from "react";
+import {ReactNode, useState} from "react";
 import {NavType} from "../Navigation/types/types";
 import {NavigationList} from "../Navigation/NavigationList/NavigationList";
-// import CartIcon from "../../assets/images/icon-cart.svg";
 import AvatarImage from "../../assets/images/image-avatar.png";
-// import CloseIcon from "../../assets/images/icon-close.svg";
 import {CartIcon} from "../svgs/CartIcon";
 import {CancelIcon} from "../svgs/CancelIcon";
 import "./Header.scss";
@@ -13,10 +11,16 @@ interface Props {
     label: string,
     navMenu?: NavType,
     isLogged?: boolean,
-    cartItems?: number
+    cartItems?: number,
+    cartComponent?: ReactNode
 }
 
-export const Header = ({label, navMenu, isLogged = false, cartItems = 3}: Props) => {
+export const Header = ({
+                           label,
+                           navMenu,
+                           isLogged = false,
+                           cartItems = 0,
+                           cartComponent}: Props) => {
     const [isCartOpened, setIsCartOpened] = useState(false);
     const [isNavigationOpened, setIsNavigationOpened] = useState(false);
     const toggleCart = () => {
@@ -71,12 +75,15 @@ export const Header = ({label, navMenu, isLogged = false, cartItems = 3}: Props)
                             color="currentColor"
                             className="header-cart__icon"
                         />
-                        <span className="header-cart__counter">{cartItems}</span>
+                        {cartItems > 0 &&
+                            <span className="header-cart__counter">{cartItems}</span>
+                        }
+
                     </div>
                 </button>
-                {isCartOpened && (
-                    "I'm opened"
-                )}
+                {isCartOpened && typeof cartComponent !== "undefined" &&
+                    cartComponent
+                }
                 {isLogged && (
                     <img
                         className="header__avatar-image"
