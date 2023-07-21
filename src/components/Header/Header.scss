@@ -4,22 +4,52 @@
   top: 0;
   left: 0;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background: $primary-color;
   padding: 24px;
   z-index: 100;
 }
+.header__item {
+  display: flex;
+  align-items: flex-end;
+}
 .header__label {
   order: 1;
+  text-transform: lowercase;
+  font-size: $font-size--h1;
+  line-height: 20px;
 }
 .header-button__icon {
   width: 22px;
   height: 20px;
 }
+
+.hamburger-button__span {
+  background: var(--button-icon-color, $text-color--main);
+  height: 3px;
+  width: 100%;
+}
 .hamburger-button {
   order: 0;
+  display:flex;
+  gap: 3px;
+  flex-direction:column;
+  width: 16px;
+  cursor:pointer;
+  justify-content: center;
+  margin-right: 16px;
+  &:hover .hamburger-button__span {
+    --button-icon-color: #{$text-color--hover};
+  }
+  &:focus .hamburger-button__span {
+    --button-icon-color: #{$primary-color};
+  }
 }
+
+
+.hamburger-button__input[type="checkbox"]{
+  display:none;
+}
+
 .header-navigation {
   display: none;
 }
@@ -40,11 +70,17 @@
 
 .header-navigation__button {
   cursor: pointer;
-  outline: none;
   border: none;
   background: none;
+  color: $text-color--main;
+  &:hover .header-navigation__icon {
+    color: $text-color--hover;
+  }
   &:focus {
     outline: none;
+  }
+  &:focus .header-navigation__icon {
+    color: $primary-color;;
   }
 }
 
@@ -53,6 +89,63 @@
   height: 15px;
 }
 
-.header__container {
+.header-user-container {
   order: 2;
+  gap: 24px;
+  margin-left: auto;
+  align-items: center;
+}
+
+.header-cart {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  color: $text-color--main;
+  padding: 0;
+  &:hover .header-cart__icon {
+    color: $text-color--hover;
+  }
+  &:focus .header-cart__icon {
+    color: $primary-color;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.header-cart--full {
+  color: $black;
+  &:hover .header-cart__icon, &:focus.header-cart__icon {
+    color: $black--hover;
+  }
+  &:focus .header-cart__icon, &:focus.header-cart__icon {
+    color: $primary-color;
+  }
+}
+
+.header-cart__icon {
+  width: 22px;
+  height: 20px;
+}
+
+.header-cart__counter {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  background: $primary-color;
+  color: $white;
+  border-radius: 20px;
+  width: 20px;
+  height: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+}
+
+.header__avatar-image {
+  width: 24px;
+  height: 24px;
+  border-radius: 100px;
 }
