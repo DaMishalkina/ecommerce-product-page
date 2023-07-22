@@ -70,7 +70,7 @@ export const Header = ({
                         cartItems > 0 && "header-cart--full")}
                     onClick={toggleCart}
                 >
-                    <div className="header-cart__container">
+                    <span className="header-cart__container">
                         <CartIcon
                             color="currentColor"
                             className="header-cart__icon"
@@ -79,7 +79,7 @@ export const Header = ({
                             <span className="header-cart__counter">{cartItems}</span>
                         }
 
-                    </div>
+                    </span>
                 </button>
                 {isCartOpened && typeof cartComponent !== "undefined" &&
                     cartComponent
