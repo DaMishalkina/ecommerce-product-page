@@ -1,4 +1,4 @@
-import {ReactNode, useState} from "react";
+import {useState, cloneElement, ReactElement} from "react";
 import {NavType} from "../Navigation/types/types";
 import {NavigationList} from "../Navigation/NavigationList/NavigationList";
 import AvatarImage from "../../assets/images/image-avatar.png";
@@ -12,7 +12,7 @@ interface Props {
     navMenu?: NavType,
     isLogged?: boolean,
     cartItems?: number,
-    cartComponent?: ReactNode
+    cartComponent?: ReactElement
 }
 
 export const Header = ({
@@ -82,7 +82,7 @@ export const Header = ({
                     </span>
                 </button>
                 {isCartOpened && typeof cartComponent !== "undefined" &&
-                    cartComponent
+                    cloneElement(cartComponent, {closeCartWindow: () => setIsCartOpened(false)} )
                 }
                 {isLogged && (
                     <img
