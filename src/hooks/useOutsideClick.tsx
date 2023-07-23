@@ -6,6 +6,8 @@ export const useOutsideClick = (callback: () => void, excludedRef: RefObject<HTM
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
+            // Adding excludedRef in order to avoid two equal actions with polar effects, such as closing window
+            // by clicking outside component and closing window by clicking on button
             let excludedRefCondition: boolean | null  = true;
             if (excludedRef !== null) {
                 excludedRefCondition = excludedRef.current && !excludedRef.current.contains(event.target as Node)
