@@ -1,9 +1,10 @@
-import {useState, cloneElement, ReactElement} from "react";
+import {useState, cloneElement, ReactElement, RefObject, useRef} from "react";
 import {NavType} from "../Navigation/types/types";
 import {NavigationList} from "../Navigation/NavigationList/NavigationList";
 import AvatarImage from "../../assets/images/image-avatar.png";
 import {CartIcon} from "../svgs/CartIcon";
 import {CancelIcon} from "../svgs/CancelIcon";
+import {useOutsideClick} from "../../hooks/useOutsideClick";
 import "./Header.scss";
 import * as classNames from "classnames";
 
@@ -25,7 +26,12 @@ export const Header = ({
     const [isNavigationOpened, setIsNavigationOpened] = useState(false);
     const toggleCart = () => {
         setIsCartOpened((prevState) => !prevState);
+
     }
+    const buttonRef = useRef<HTMLButtonElement>();
+    const cartRef = useOutsideClick(() => {
+        setIsCartOpened(false);
+    }, buttonRef as RefObject<HTMLElement>);
     return (
         <header className="header">
             <div className="header__item">
@@ -65,6 +71,7 @@ export const Header = ({
             </div>
             <section className="header-user-container header__item">
                 <button
+                    ref={buttonRef as RefObject<HTMLButtonElement>}
                     className={classNames(
                         "header-cart header__button",
                         cartItems > 0 && "header-cart--full")}
@@ -82,7 +89,7 @@ export const Header = ({
                     </span>
                 </button>
                 {isCartOpened && typeof cartComponent !== "undefined" &&
-                    cloneElement(cartComponent, {closeCartWindow: () => setIsCartOpened(false)} )
+                    cloneElement(cartComponent, {cartRef: cartRef})
                 }
                 {isLogged && (
                     <img

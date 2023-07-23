@@ -3,7 +3,7 @@ import {CartItemType} from "../types/types";
 import {CartItem} from "../CartItem/CartItem";
 import {Button} from "../../Button/Button";
 import * as classNames from "classnames";
-import {useOutsideClick} from "../../../hooks/useOutsideClick";
+import {RefObject} from "react";
 
 interface Props {
     header: string,
@@ -12,7 +12,7 @@ interface Props {
     mainText?: string,
     currency?: string,
     handleDelete?: () => void,
-    closeCartWindow?: () => void
+    cartRef?: RefObject<HTMLDivElement>,
 }
 
 const isCartFull = (items: CartItemType[] | undefined) => {
@@ -26,13 +26,10 @@ export const CartComponent = ({
                                   buttonLabel = "Checkout",
                                   currency = "$",
                                   handleDelete,
-                                  closeCartWindow }: Props) => {
-    const cartRef = useOutsideClick(() => {
-        closeCartWindow && closeCartWindow()
-    });
+                                  cartRef }: Props) => {
 
     return (
-        <section ref={cartRef} className="cart">
+        <section ref={cartRef as RefObject<HTMLDivElement>} className="cart">
             <p className="cart__header">{header}</p>
             <div className={classNames(
                 "cart-content cart__content",
