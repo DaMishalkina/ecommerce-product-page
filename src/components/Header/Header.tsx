@@ -1,10 +1,9 @@
-import {useState, cloneElement, ReactElement, RefObject, useRef} from "react";
+import {useState, ReactElement} from "react";
 import {NavType} from "../Navigation/types/types";
 import {NavigationList} from "../Navigation/NavigationList/NavigationList";
 import AvatarImage from "../../assets/images/image-avatar.png";
-import {CartIcon} from "../svgs/CartIcon";
+import {CartComponent} from "../Cart/CartComponent/CartComponent";
 import {CancelIcon} from "../svgs/CancelIcon";
-import {useOutsideClick} from "../../hooks/useOutsideClick";
 import "./Header.scss";
 import * as classNames from "classnames";
 
@@ -12,26 +11,17 @@ interface Props {
     label: string,
     navMenu?: NavType,
     isLogged?: boolean,
-    cartItems?: number,
-    cartComponent?: ReactElement
+    cartItemsNumber?: number,
+    cartDropdown?: ReactElement
 }
 
 export const Header = ({
                            label,
                            navMenu,
                            isLogged = false,
-                           cartItems = 0,
-                           cartComponent}: Props) => {
-    const [isCartOpened, setIsCartOpened] = useState(false);
+                           cartItemsNumber = 0,
+                           cartDropdown}: Props) => {
     const [isNavigationOpened, setIsNavigationOpened] = useState(false);
-    const toggleCart = () => {
-        setIsCartOpened((prevState) => !prevState);
-
-    }
-    const buttonRef = useRef<HTMLButtonElement>();
-    const cartRef = useOutsideClick(() => {
-        setIsCartOpened(false);
-    }, buttonRef as RefObject<HTMLElement>);
     return (
         <header className="header">
             <div className="header__item">
@@ -70,27 +60,10 @@ export const Header = ({
                 )}
             </div>
             <section className="header-user-container header__item">
-                <button
-                    ref={buttonRef as RefObject<HTMLButtonElement>}
-                    className={classNames(
-                        "header-cart header__button",
-                        cartItems > 0 && "header-cart--full")}
-                    onClick={toggleCart}
-                >
-                    <span className="header-cart__container">
-                        <CartIcon
-                            color="currentColor"
-                            className="header-cart__icon"
-                        />
-                        {cartItems > 0 &&
-                            <span className="header-cart__counter">{cartItems}</span>
-                        }
-
-                    </span>
-                </button>
-                {isCartOpened && typeof cartComponent !== "undefined" &&
-                    cloneElement(cartComponent, {cartRef: cartRef})
-                }
+                <CartComponent
+                    cartDropdown={cartDropdown}
+                    cartItemsNumber={cartItemsNumber}
+                />
                 {isLogged && (
                     <img
                         className="header__avatar-image"

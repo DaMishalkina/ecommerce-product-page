@@ -1,0 +1,45 @@
+@import "src/styles/StyleVariables";
+.cart-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  color: $text-color--main;
+  padding: 0;
+  &:hover .cart-button__icon {
+    color: $text-color--header;
+  }
+  &:focus .cart-button__icon, &:active .cart-button__icon {
+    color: $primary-color;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.cart-button--filled-cart {
+  color: $text-color--header;
+  &:focus .cart-button__icon{
+    color: $primary-color;
+  }
+}
+
+.cart-button__icon {
+  width: 22px;
+  height: 20px;
+}
+
+.cart-button__counter {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  background: $primary-color;
+  color: $white;
+  border-radius: 20px;
+  width: 20px;
+  height: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+}

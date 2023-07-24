@@ -5,7 +5,7 @@ import cartContent from "./data/cartContent.json";
 import productCards from "./data/productCards.json";
 import {ProductCardType} from "./data/types/types";
 import {CartItemType} from "./components/Cart/types/types";
-import {CartComponent} from "./components/Cart/CartComponent/CartComponent";
+import {CartDropdown} from "./components/Cart/CartDropdown/CartDropdown";
 import {useState} from "react";
 
 const productItems: ProductCardType[] = productCards.productCards;
@@ -20,9 +20,6 @@ const restructureProductItemValuesForCart = (product: ProductCardType) => {
 }
 
 function App() {
-
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     const [product1, setProduct1] = useState<CartItemType | null>(restructureProductItemValuesForCart(productItems[0]))
     return (
         <div className="App">
@@ -30,14 +27,15 @@ function App() {
                 label={layoutContent?.shopName}
                 navMenu={layoutContent?.navs}
                 isLogged={true}
-                cartComponent={
-                <CartComponent
+                cartItemsNumber={product1?.productQuantity}
+                cartDropdown={
+                <CartDropdown
                     header={cartContent?.header}
                     buttonLabel={cartContent?.buttonLabel}
                     mainText={cartContent?.defaultContent}
                     {...(product1 && { productItems: [product1]} )}
-                    handleDelete={() => setProduct1(null)}
-                />}
+                    handleDelete={() => setProduct1(null)}  />
+                }
             />
         </div>
     )
