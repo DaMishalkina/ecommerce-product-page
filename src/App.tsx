@@ -1,7 +1,7 @@
 import "./App.css"
 // import {Header} from "./components/Header/Header";
 import {Layout} from "./components/Layout/Layout";
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from "react-router-dom";
+import { Route, Routes, HashRouter } from "react-router-dom";
 import { ROUTES } from "./components/Navigation/constants/constants";
 import {RouteItem} from "./components/Navigation/types/types";
 
@@ -25,40 +25,32 @@ import {RouteItem} from "./components/Navigation/types/types";
 //     <div>{`No Component Defined.`}</div>
 // );
 
-const router = createBrowserRouter(
-    createRoutesFromElements(
-        <Route path="/" element={<Layout />}>
-            {ROUTES.map((route: RouteItem) => (
-                route.subRoutes ? route.subRoutes.map((item: RouteItem) => (
-                        <Route
-                            key={`${item.key}`}
-                            path={`${item.path}`}
-                            Component={item.component}
-                        />
-                    )) :
-                    <Route
-                        key={`${route.key}`}
-                        path={`${route.path}`}
-                        Component={route.component}
-                    />
-            ))}
-            {/*<Route index element={<Home />} />*/}
-            {/*<Route path="/contact" element={<Contact/>} />*/}
-            {/*<Route path="/collections" element={<Collections/>} />*/}
-            {/*<Route path="/about" element={<About/>} />*/}
-            {/*<Route path="/women" element={<Women/>} />*/}
-            {/*<Route path="/men" element={<Men/>} />*/}
-            {/*<Route path="/:id" element={<Product/>} />*/}
-        </Route>
-    )
-)
 
 
 function App() {
     // const [product1, setProduct1] = useState<CartItemType | null>(restructureProductItemValuesForCart(productItems[0]))
     return (
         <>
-            <RouterProvider router={router}/>
+            <HashRouter>
+                <Routes>
+                    <Route path="/" element={<Layout />}>
+                        {ROUTES.map((route: RouteItem) => (
+                            route.subRoutes ? route.subRoutes.map((item: RouteItem) => (
+                                    <Route
+                                        key={`${item.key}`}
+                                        path={`${item.path}`}
+                                        Component={item.component}
+                                    />
+                                )) :
+                                <Route
+                                    key={`${route.key}`}
+                                    path={`${route.path}`}
+                                    Component={route.component}
+                                />
+                        ))}
+                    </Route>
+                </Routes>
+            </HashRouter>
             {/*<Header*/}
             {/*    label={layoutContent?.shopName}*/}
             {/*    navMenu={layoutContent?.navs}*/}
