@@ -7,6 +7,7 @@ export const CartIcon = ({
                                color = "#69707D"}: SvgType) => {
     return (
         <svg
+            viewBox="0 0 22 20"
             role="img"
             className={className}
             width={width}
