@@ -12,7 +12,7 @@ interface Props {
 
 export const CartButton = ({
                                onClick,
-                               buttonLabel = "",
+                               buttonLabel = "Toggle Cart",
                                buttonClassName = "",
                                isCartEmpty = true,
                                cartItemsNumber = 0}: Props) => {

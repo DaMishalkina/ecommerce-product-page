@@ -43,7 +43,8 @@ export const Header = ({
                             <span aria-hidden="true" className="hamburger-button__span"></span>
                             <span aria-hidden="true" className="hamburger-button__span"></span>
                         </label>
-                        <section className={classNames("header-navigation header__navigation",
+                        <section
+                            className={classNames("header-navigation header__navigation",
                             isNavigationOpened && "header-navigation--opened")}>
                             <button
                                 className="header-navigation__button"

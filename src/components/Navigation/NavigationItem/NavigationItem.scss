@@ -1,0 +1,22 @@
+@import "src/styles/StyleVariables";
+.navigation-item__link {
+  padding: 0;
+  margin: 0;
+  color: $text-color--header;
+  text-decoration: none;
+}
+
+@media (min-width: $screen--lg) {
+  .navigation-item {
+  }
+  .navigation-item__link {
+    color: $text-color--main;
+    margin-bottom: -46px;
+    padding-bottom: 46px;
+    &:hover {
+      color: $text-color--header;
+      border-bottom: 4px solid $primary-color;
+    }
+  }
+
+}
