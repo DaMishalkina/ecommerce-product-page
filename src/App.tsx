@@ -3,6 +3,7 @@ import "./App.css"
 import {Layout} from "./components/Layout/Layout";
 import { Route, Routes, HashRouter } from "react-router-dom";
 import { ROUTES } from "./components/Navigation/constants/constants";
+
 import {RouteItem} from "./components/Navigation/types/types";
 
 // import cartContent from "./data/cartContent.json";

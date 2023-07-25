@@ -55,6 +55,16 @@ export const ROUTES: Array<RouteItem> = [
         enabled: true,
         component: Women,
         appendDivider: true,
+        type: "guest",
+    },
+    {
+        key: "router-product",
+        title: PAGE_TITLE_PRODUCT,
+        tooltip: PAGE_TITLE_PRODUCT,
+        path: "/women/:id",
+        enabled: true,
+        component: Product,
+        appendDivider: true,
         type: "guest"
     },
     {
@@ -71,7 +81,7 @@ export const ROUTES: Array<RouteItem> = [
         key: "router-product",
         title: PAGE_TITLE_PRODUCT,
         tooltip: PAGE_TITLE_PRODUCT,
-        path: "/:id",
+        path: "men/:id",
         enabled: true,
         component: Product,
         appendDivider: true,
