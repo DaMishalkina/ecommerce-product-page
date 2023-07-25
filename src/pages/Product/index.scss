@@ -1,0 +1,43 @@
+.images-carousel {
+  width: 100vw;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+
+
+}
+.images-carousel__slide {
+  flex-shrink: 0;
+  width: 100vw;
+  height: auto;
+  max-height: 300px;
+}
+
+.images-carousel__image {
+  width: 100vw;
+  object-fit: cover;
+}
+
+.images-carousel__actions {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.images-carousel__slider {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.next-slide {
+  transform: translate(-100%, 0);
+}
