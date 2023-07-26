@@ -3,5 +3,6 @@ export type SvgType =  {
     height?: string,
     color?: string,
     className?: string,
+    title?: string,
 
 }
