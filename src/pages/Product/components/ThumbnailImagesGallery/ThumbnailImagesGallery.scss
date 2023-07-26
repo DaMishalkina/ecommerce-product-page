@@ -1,4 +1,16 @@
+@import "src/styles/StyleVariables";
 .images-gallery {
   display: flex;
   gap: 26px;
 }
+
+.images-gallery--mobile-hidden {
+  display: none;
+}
+
+@media (min-width: $screen--lg) {
+  .images-gallery--mobile-hidden {
+    display: flex;
+  }
+}
+

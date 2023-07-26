@@ -8,7 +8,11 @@ import * as classNames from "classnames";
 interface Props {
     images: ImageType[],
     carouselClassName?: string,
-    isWithActions?: boolean
+    isWithActions?: boolean,
+    isWithActionsDesktop?: boolean,
+    handleCarouselImageClick?: () => void,
+    isWithGallery?: boolean,
+    isWithGalleryMobile?: boolean,
 }
 
 const PREV = "prev";
@@ -18,6 +22,10 @@ export const ImagesCarousel = ({
                                    images,
                                    carouselClassName,
                                    isWithActions = true,
+                                   isWithActionsDesktop = false,
+                                   handleCarouselImageClick,
+                                   isWithGalleryMobile = false,
+                                   isWithGallery = true
                                   }: Props) => {
     const [sliderTransformationIndex, setSliderTransformationIndex] = useState(0);
     const handlePrevNextButtonsCLick = (event: MouseEvent<HTMLButtonElement>) => {
@@ -36,6 +44,9 @@ export const ImagesCarousel = ({
     return (
         <div className="images-carousel">
             <div className="images-carousel__wrapper-container">
+                {typeof handleCarouselImageClick !== "undefined" && (
+                    <button className="images-carousel__wrapper-button" onClick={handleCarouselImageClick}/>
+                )}
                 <div className={classNames("images-carousel__container", carouselClassName)}>
                     <ul
                         className="images-carousel__slider"
@@ -56,7 +67,9 @@ export const ImagesCarousel = ({
                     </ul>
                 </div>
                 {isWithActions && (
-                    <div className="images-carousel__actions">
+                    <div className={classNames("images-carousel-actions images-carousel__actions",
+                        !isWithActionsDesktop && "images-carousel-actions--desktop-hidden"
+                    )}>
                         <button
                             onClick={(event) => handlePrevNextButtonsCLick(event)}
                             id={PREV}
@@ -72,11 +85,14 @@ export const ImagesCarousel = ({
                     </div>
                 )}
             </div>
-            <ThumbnailImagesGallery
-                images={images}
-                activeImageIndex={sliderTransformationIndex}
-                handleClick={(index) => setSliderTransformationIndex(index)}
-            />
+            {isWithGallery && (
+                <ThumbnailImagesGallery
+                    isMobileHidden={!isWithGalleryMobile}
+                    images={images}
+                    activeImageIndex={sliderTransformationIndex}
+                    handleClick={(index) => setSliderTransformationIndex(index)}
+                />
+            )}
         </div>
     )
 }

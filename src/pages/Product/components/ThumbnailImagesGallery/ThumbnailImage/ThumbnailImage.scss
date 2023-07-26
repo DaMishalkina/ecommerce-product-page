@@ -3,7 +3,8 @@
 .gallery-button {
   display: flex;
   padding: 0;
-  border: 2px solid rgba($black, 75%);
+  border: 2px solid transparent;
+  background-clip: padding-box;
   border-radius: 8px;
   cursor: pointer;
   position: relative;
