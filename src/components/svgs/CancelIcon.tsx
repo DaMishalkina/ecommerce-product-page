@@ -7,6 +7,7 @@ export const CancelIcon = ({
                                color = "#69707D"}: SvgType) => {
     return (
         <svg
+            viewBox="0 0 14 15"
             role="img"
             className={className}
             width={width}

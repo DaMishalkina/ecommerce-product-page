@@ -1,0 +1,113 @@
+@import "src/styles/StyleVariables";
+.images-carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  position: relative;
+}
+.images-carousel__wrapper-container {
+  position: relative;
+}
+.images-carousel__container {
+  width: 100vw;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  max-height: 300px;
+}
+.images-carousel__slide {
+  flex-shrink: 0;
+  width: 100vw;
+  height: auto;
+  max-height: 300px;
+  position: relative;
+}
+.images-carousel__image {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+}
+
+.images-carousel__actions {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.images-carousel__slider {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.button--prev svg {
+  transform: rotate(180deg);
+}
+.images-carousel__button {
+  color: $text-color--header;
+  background: $white;
+  border-radius: 100px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    color: $primary-color;
+  }
+  &:focus, &:active {
+    color: $primary-color;
+    background: $primary-color--light;
+    outline: none;
+  }
+}
+
+@media (min-width: $screen--md) {
+  .images-carousel__image {
+    object-fit: contain;
+    height: 100%;
+    background: rgb(200,99,31);
+    background: linear-gradient(172deg, rgba(200,99,31,1) 0%, rgba(173,75,3,1) 87%);
+  }
+}
+
+@media (min-width: $screen--lg) {
+  .images-carousel__container {
+    width: 550px;
+    height: 550px;
+    max-height: 550px;
+    border-radius: 16px;
+  }
+  .images-carousel__slider {
+    width: 100%;
+  }
+  .images-carousel__slide {
+    max-height: 550px;
+    width: 100%;
+  }
+  .images-carousel__image {
+    width: 100%;
+  }
+
+  .images-carousel__actions {
+    padding: 0;
+    right: -20px;
+    left: -20px;
+  }
+
+
+}
+
