@@ -3,14 +3,17 @@
   display: flex;
   gap: 26px;
 }
-
-.images-gallery--mobile-hidden {
+.images-gallery.display-none--mobile {
   display: none;
 }
 
+
 @media (min-width: $screen--lg) {
-  .images-gallery--mobile-hidden {
+  .images-gallery.display-none--mobile {
     display: flex;
+  }
+  .images-gallery.display-none--desktop {
+    display: none;
   }
 }
 

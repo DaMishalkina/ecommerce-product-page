@@ -1,33 +1,49 @@
 import "./ImagesCarousel.scss";
-import {ArrowIcon} from "../../../../components/svgs/ArrowIcon";
-import {MouseEvent, useState} from "react";
-import {ImageType} from "../../types/types";
+import {MouseEvent, useEffect, useState} from "react";
+import {DisplaySettingsType, ImageType} from "../../types/types";
 import {ThumbnailImagesGallery} from "../ThumbnailImagesGallery/ThumbnailImagesGallery";
+import {ActionButtons} from "./ActionButtons/ActionButtons";
 import * as classNames from "classnames";
 
 interface Props {
     images: ImageType[],
+    defaultSliderTransformationIndex?: number,
     carouselClassName?: string,
-    isWithActions?: boolean,
-    isWithActionsDesktop?: boolean,
-    handleCarouselImageClick?: () => void,
-    isWithGallery?: boolean,
-    isWithGalleryMobile?: boolean,
+    actionsDisplaySettings?: DisplaySettingsType,
+    galleryDisplaySettings?: DisplaySettingsType,
+    handleCarouselImageClick?: (index: number) => void,
+    desktopSliderSize?: "small" | "large"
 }
 
 const PREV = "prev";
 const NEXT = "next";
+const isSliderLarge = (size = "large") => {
+    return size === "large";
+}
 
 export const ImagesCarousel = ({
                                    images,
                                    carouselClassName,
-                                   isWithActions = true,
-                                   isWithActionsDesktop = false,
+                                   actionsDisplaySettings = {
+                                       isDisplayNone: false,
+                                       isDisplayNoneDesktop: false,
+                                       isDisplayNoneMobile: false
+                                   },
+                                   galleryDisplaySettings = {
+                                       isDisplayNone: false,
+                                       isDisplayNoneDesktop: false,
+                                       isDisplayNoneMobile: false
+                                   },
                                    handleCarouselImageClick,
-                                   isWithGalleryMobile = false,
-                                   isWithGallery = true
+                                   defaultSliderTransformationIndex = 0,
+                                   desktopSliderSize = "small"
                                   }: Props) => {
-    const [sliderTransformationIndex, setSliderTransformationIndex] = useState(0);
+    const [sliderTransformationIndex, setSliderTransformationIndex] =
+        useState(defaultSliderTransformationIndex);
+
+    useEffect(() => {
+        setSliderTransformationIndex(defaultSliderTransformationIndex);
+    }, [defaultSliderTransformationIndex])
     const handlePrevNextButtonsCLick = (event: MouseEvent<HTMLButtonElement>) => {
         switch ((event.currentTarget as HTMLButtonElement).id) {
             case PREV:
@@ -45,9 +61,13 @@ export const ImagesCarousel = ({
         <div className="images-carousel">
             <div className="images-carousel__wrapper-container">
                 {typeof handleCarouselImageClick !== "undefined" && (
-                    <button className="images-carousel__wrapper-button" onClick={handleCarouselImageClick}/>
+                    <button className="images-carousel__wrapper-button"
+                            onClick={() => handleCarouselImageClick(sliderTransformationIndex)}/>
                 )}
-                <div className={classNames("images-carousel__container", carouselClassName)}>
+                <div className={
+                    classNames(
+                        "images-carousel__container", carouselClassName,
+                        isSliderLarge(desktopSliderSize) && "large")}>
                     <ul
                         className="images-carousel__slider"
                         style={{transform: `translateX(${-sliderTransformationIndex*100}%)`}}
@@ -66,28 +86,15 @@ export const ImagesCarousel = ({
 
                     </ul>
                 </div>
-                {isWithActions && (
-                    <div className={classNames("images-carousel-actions images-carousel__actions",
-                        !isWithActionsDesktop && "images-carousel-actions--desktop-hidden"
-                    )}>
-                        <button
-                            onClick={(event) => handlePrevNextButtonsCLick(event)}
-                            id={PREV}
-                            className="button--prev images-carousel__button">
-                            <ArrowIcon color="currentColor" title="Prev Icon" />
-                        </button>
-                        <button
-                            onClick={(event) => handlePrevNextButtonsCLick(event)}
-                            id={NEXT}
-                            className="button--next images-carousel__button">
-                            <ArrowIcon color="currentColor" title="Next Icon" />
-                        </button>
-                    </div>
+                {!actionsDisplaySettings?.isDisplayNone && (
+                    <ActionButtons
+                        displaySettings={actionsDisplaySettings}
+                        handleClick={handlePrevNextButtonsCLick} />
                 )}
             </div>
-            {isWithGallery && (
+            {!galleryDisplaySettings?.isDisplayNone && (
                 <ThumbnailImagesGallery
-                    isMobileHidden={!isWithGalleryMobile}
+                    displaySettings={galleryDisplaySettings}
                     images={images}
                     activeImageIndex={sliderTransformationIndex}
                     handleClick={(index) => setSliderTransformationIndex(index)}

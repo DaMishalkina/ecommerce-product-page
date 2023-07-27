@@ -1,24 +1,29 @@
 import "./ThumbnailImagesGallery.scss";
 import {ImageType} from "../../types/types";
 import {ThumbnailImage} from "./ThumbnailImage/ThumbnailImage";
+import {DisplaySettingsType} from "../../types/types";
 import * as classNames from "classnames";
 
 interface Props {
     images: ImageType[],
     activeImageIndex: number,
     handleClick: (index: number) => void,
-    isMobileHidden?: boolean
-
+    displaySettings?: DisplaySettingsType
 }
 
 export const ThumbnailImagesGallery = ({
                                            images,
                                            activeImageIndex,
                                            handleClick,
-                                           isMobileHidden = true}: Props) => {
+                                           displaySettings = {
+                                               isDisplayNoneMobile: false,
+                                               isDisplayNoneDesktop: false}}: Props) => {
+    const {isDisplayNoneDesktop, isDisplayNoneMobile} = displaySettings;
     return (
-        <div className={classNames( "images-gallery",
-            isMobileHidden && "images-gallery--mobile-hidden"
+        <div className={
+            classNames( "images-gallery",
+                isDisplayNoneMobile && "display-none--mobile",
+                isDisplayNoneDesktop && "display-none--desktop"
             )}>
             {images.map((image, index) => (
                 <ThumbnailImage

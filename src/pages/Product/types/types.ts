@@ -4,3 +4,9 @@ export type ImageType = {
     title: string,
     thumbnailSource?: string
 }
+
+export type DisplaySettingsType = {
+    isDisplayNone?: boolean,
+    isDisplayNoneMobile?: boolean,
+    isDisplayNoneDesktop?: boolean
+}

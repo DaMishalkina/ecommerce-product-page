@@ -15,6 +15,7 @@ export const Product = () => {
     const {id} = useParams();
     const [product, setProduct] = useState(products.filter(item => item.id.toString() === id)[0]);
     const [isCarouselOpened, setIsCarouselOpened] = useState(false);
+    const [sliderTransformationIndex, setSliderTransformationIndex] = useState(0);
     const productImages = [...Array(IMAGES_NUMBER).keys()].map(index => {
         const folderName = product.productName.replace(/\s/g, "");
         const src = `src/assets/images/products/${folderName}/image-product-${index + 1}.jpg`;
@@ -34,9 +35,16 @@ export const Product = () => {
         <section className="product-section">
             <div className="product-images product__images">
                 <ImagesCarousel
-                    handleCarouselImageClick={() => setIsCarouselOpened(true)}
-                    isWithGalleryMobile={false}
-                    images={productImages} />
+                    defaultSliderTransformationIndex={sliderTransformationIndex}
+                    handleCarouselImageClick={(index) => {
+                        setSliderTransformationIndex(index)
+                        setIsCarouselOpened(true)
+                    }}
+                    images={productImages}
+                    galleryDisplaySettings={{isDisplayNoneMobile: true}}
+                    actionsDisplaySettings={{isDisplayNoneDesktop: true}}
+
+                />
                 <Modal
                     isOpened={isCarouselOpened}
                     className={classNames("product-images__modal",
@@ -44,7 +52,11 @@ export const Product = () => {
                     )}
                     setIsOpened={(state: boolean) => setIsCarouselOpened(state)}
                 >
-                    <ImagesCarousel images={productImages} />
+                    <ImagesCarousel
+                        defaultSliderTransformationIndex={sliderTransformationIndex}
+                        desktopSliderSize="large"
+                        images={productImages}
+                    />
                 </Modal>
             </div>
             {product?.productName}
