@@ -25,13 +25,13 @@ export const Modal = ({setIsOpened, children, className = "", isOpened}: Props) 
         }
     }, [isOpened])
     return (
-        <section className={classNames("modal__wrapper", className)}>
+        <div className={classNames("modal__wrapper", className)}>
             <div ref={modalRef} className="modal__container">
                 <button className="modal__close-button" onClick={handleClose}>
                     <CancelIcon color="currentColor" />
                 </button>
                 {children}
             </div>
-        </section>
+        </div>
     )
 }
