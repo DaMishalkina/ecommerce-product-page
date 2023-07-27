@@ -8,8 +8,8 @@
   border-radius: 8px;
   cursor: pointer;
   position: relative;
-  width: 88px;
-  height: 88px;
+  width: 80px;
+  height: 80px;
   box-sizing: border-box;
   &:hover::after {
     content: "";
@@ -24,6 +24,11 @@
   &:focus::after, &:active::after {
     border: 2px solid $primary-color;
   }
+}
+
+.large .gallery-button {
+  width: 88px;
+  height: 88px;
 }
 .gallery-button--active {
   border: 2px solid $primary-color;

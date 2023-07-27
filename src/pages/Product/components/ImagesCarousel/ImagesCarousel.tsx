@@ -58,7 +58,7 @@ export const ImagesCarousel = ({
         }
     }
     return (
-        <div className="images-carousel">
+        <div className={classNames("images-carousel",  isSliderLarge(desktopSliderSize) && "large")}>
             <div className="images-carousel__wrapper-container">
                 {typeof handleCarouselImageClick !== "undefined" && (
                     <button className="images-carousel__wrapper-button"
