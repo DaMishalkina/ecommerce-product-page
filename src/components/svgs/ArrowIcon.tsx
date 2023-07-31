@@ -4,7 +4,7 @@ export const ArrowIcon = ({
                               width = "14",
                               height = "11",
                               className = "",
-                              title = "Next Icon",
+                              title = "Arrow Icon",
                               color = "#1D2026"}: SvgType) => {
     return (
         <svg

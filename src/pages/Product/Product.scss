@@ -30,6 +30,34 @@
   font-size: $font-size--main;
 }
 
+.product-section__price-block {
+  margin-bottom: 33px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-section__actual-price {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  color: $text-color--header;
+  font-size: $font-size--h1;
+  font-weight: bold;
+}
+
+.product-section__price {
+  color: $text-color--hover;
+  font-weight: bold;
+  text-decoration: line-through;
+}
+
+.product-section__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 
 
 @media (min-width: $screen--lg) {

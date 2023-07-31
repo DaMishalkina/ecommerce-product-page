@@ -7,6 +7,8 @@ import {Modal} from "../../components/Modal/Modal";
 import {ImagesCarousel} from "./components/ImagesCarousel/ImagesCarousel";
 import {Button} from "../../components/Button/Button";
 import {CartIcon} from "../../components/svgs/CartIcon";
+import {DiscountBadge} from "./components/DiscountBadge/DiscountBadge";
+import {Counter} from "./components/Counter/Counter";
 import productPageContent from "../../data/productPageContent.json";
 
 
@@ -14,12 +16,14 @@ import productPageContent from "../../data/productPageContent.json";
 
 const products: ProductCardType[] = productCards.productCards;
 const IMAGES_NUMBER = 4;
+const CURRENCY = "$";
 
 export const Product = () => {
     const {id} = useParams();
     const [product, setProduct] = useState(products.filter(item => item.id.toString() === id)[0]);
     const [isCarouselOpened, setIsCarouselOpened] = useState(false);
     const [sliderTransformationIndex, setSliderTransformationIndex] = useState(0);
+    const [counter, setCounter] = useState(0);
     const productImages = [...Array(IMAGES_NUMBER).keys()].map(index => {
         const folderName = product.productName.replace(/\s/g, "");
         const src = `src/assets/images/products/${folderName}/image-product-${index + 1}.jpg`;
@@ -30,8 +34,14 @@ export const Product = () => {
             title: product.productName
         }
     })
+    const handleAddButtonClick = () => {
+        setCounter(0);
+    }
+    const actualPrice = product?.discount
+        ? (Number(product?.price) - (Number(product?.price)*Number(product?.discount?.replace(/%/g, ''))/100)).toFixed(2)
+        : product?.price;
 
-    useEffect(() => {
+        useEffect(() => {
         setProduct(products.filter(item => item.id.toString() === id)[0])
     }, [id])
 
@@ -72,17 +82,20 @@ export const Product = () => {
                 <div className="product-section__price-block">
                     <p className="product-section__actual-price">
                         {
-                            (Number(product?.price) - (Number(product?.price)*Number(product?.discount?.replace(/%/g, ''))/100)).toFixed(2)
+                            CURRENCY + actualPrice
                         }
                         {product?.discount && (
-                            <span className="badge"></span>
+                           <DiscountBadge discount={product?.discount} />
                         )}
                     </p>
-                    <p className="product-section__price">{product?.price}</p>
+                    {product?.discount && (
+                        <p className="product-section__price">{CURRENCY + product?.price}</p>
+                    )}
                 </div>
                 <div className="product-section__actions">
-                    <div className="product-section__counter">0</div>
+                   <Counter counter={counter} setCounter={setCounter} />
                     <Button
+                        onClick={handleAddButtonClick}
                         buttonLabel={productPageContent?.buttonLabel}
                         icon={<CartIcon />}
                     />
