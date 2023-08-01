@@ -2,21 +2,27 @@ import "./CartItem.scss";
 import {useEffect, useState} from "react";
 import {DeleteIcon} from "../../svgs/DeleteIcon";
 import {CartItemType} from "../types/types";
+import {useDispatch} from "react-redux";
+import {deleteProduct} from "../../../redux/cartRedux";
 
 
 interface Props {
     item: CartItemType,
     currency?: string,
-    handleDelete?: () => void;
 }
 
 export const CartItem = ({
                              item,
-                             currency =  "$",
-                             handleDelete}: Props) => {
+                             currency =  "$"}: Props) => {
     const {productName, productActualPrice, productQuantity = 1, image = ""} = item;
     const [totalPrice, setTotalPrice] = useState(
         Number(Number(productActualPrice) * productQuantity).toFixed(2));
+    const dispatch = useDispatch();
+    const handleDelete = () => {
+        dispatch(
+            deleteProduct(item)
+        )
+    }
     useEffect(() => {
         setTotalPrice(
             Number(Number(productActualPrice) * productQuantity).toFixed(2));
@@ -46,7 +52,9 @@ export const CartItem = ({
                     </div>
                 </div>
             </div>
-            <button onClick={handleDelete} className="product-item-button product-item__delete-button">
+            <button
+                onClick={handleDelete}
+                className="product-item-button product-item__delete-button">
                 <DeleteIcon
                     className="product-item-button__icon"
                     color="currentColor" />

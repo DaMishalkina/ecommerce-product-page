@@ -9,8 +9,7 @@ interface Props {
     productItems?: CartItemType[],
     buttonLabel?: string,
     mainText?: string,
-    currency?: string,
-    handleDelete?: () => void,
+    currency?: string
 }
 
 const isCartFilled = (items: CartItemType[]) => {
@@ -22,8 +21,7 @@ export const CartDropdown = ({
                                  mainText = "",
                                  productItems = [],
                                  buttonLabel = "Checkout",
-                                 currency = "$",
-                                 handleDelete}: Props) => {
+                                 currency = "$"}: Props) => {
     return (
         <section className="cart">
             <p className="cart__header">{header}</p>
@@ -34,7 +32,6 @@ export const CartDropdown = ({
                     <div className="cart-content__item">
                         { productItems?.map((product, index) =>(
                             <CartItem
-                                handleDelete={handleDelete}
                                 item={product}
                                 key={index}
                                 currency={currency} />
