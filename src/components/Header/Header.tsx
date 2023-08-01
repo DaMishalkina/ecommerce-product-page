@@ -5,6 +5,7 @@ import AvatarImage from "../../assets/images/image-avatar.png";
 import {CartComponent} from "../Cart/CartComponent/CartComponent";
 import {CancelIcon} from "../svgs/CancelIcon";
 import {ReactComponent as Logo} from "../../assets/images/logo.svg";
+import {useOutsideClick} from "../../hooks/useOutsideClick";
 import "./Header.scss";
 import * as classNames from "classnames";
 
@@ -23,6 +24,9 @@ export const Header = ({
                            cartItemsNumber = 0,
                            cartDropdown}: Props) => {
     const [isNavigationOpened, setIsNavigationOpened] = useState(false);
+    const navigationContainerRef = useOutsideClick(() => {
+        setIsNavigationOpened(false);
+    })
     return (
         <header className="header">
             <div className="header__item">
@@ -47,18 +51,23 @@ export const Header = ({
                             <span aria-hidden="true" className="hamburger-button__span"></span>
                         </label>
                         <section
-                            className={classNames("header-navigation header__navigation",
-                            isNavigationOpened && "header-navigation--opened")}>
-                            <button
-                                className="header-navigation__button"
-                                onClick={() => setIsNavigationOpened(false)}
+                            className={classNames("header-navigation__wrapper header__navigation",
+                            isNavigationOpened && "opened")}>
+                            <div
+                                ref={navigationContainerRef}
+                                className="header-navigation__container"
                             >
-                                <CancelIcon
-                                    className="header-navigation__icon"
-                                    color="currentColor"
-                                />
-                            </button>
-                            <NavigationList navMenu={navMenu} />
+                                <button
+                                    className="header-navigation__button"
+                                    onClick={() => setIsNavigationOpened(false)}
+                                >
+                                    <CancelIcon
+                                        className="header-navigation__icon"
+                                        color="currentColor"
+                                    />
+                                </button>
+                                <NavigationList navMenu={navMenu} />
+                            </div>
                         </section>
                     </>
                 )}
