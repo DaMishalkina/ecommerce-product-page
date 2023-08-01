@@ -23,7 +23,7 @@ export const Product = () => {
     const [product, setProduct] = useState(products.filter(item => item.id.toString() === id)[0]);
     const [isCarouselOpened, setIsCarouselOpened] = useState(false);
     const [sliderTransformationIndex, setSliderTransformationIndex] = useState(0);
-    const [counter, setCounter] = useState(256);
+    const [counter, setCounter] = useState(0);
     const productImages = [...Array(IMAGES_NUMBER).keys()].map(index => {
         const folderName = product.productName.replace(/\s/g, "");
         const src = `src/assets/images/products/${folderName}/image-product-${index + 1}.jpg`;
