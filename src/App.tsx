@@ -6,11 +6,7 @@ import { ROUTES } from "./components/Navigation/constants/constants";
 
 import {RouteItem} from "./components/Navigation/types/types";
 
-// import cartContent from "./data/cartContent.json";
-// import productCards from "./data/productCards.json";
-// import {ProductCardType} from "./data/types/types";
-// import {CartItemType} from "./components/Cart/types/types";
-// import {useState} from "react";
+
 
 // const productItems: ProductCardType[] = productCards.productCards;
 
@@ -22,14 +18,10 @@ import {RouteItem} from "./components/Navigation/types/types";
 //         image: `src/assets/images/products/${product.productName.replace(/\s/g, '' )}/image-product-1-thumbnail.jpg`,
 //     }
 // }
-// const DefaultComponent: FunctionComponent = (): ReactElement => (
-//     <div>{`No Component Defined.`}</div>
-// );
 
 
 
 function App() {
-    // const [product1, setProduct1] = useState<CartItemType | null>(restructureProductItemValuesForCart(productItems[0]))
     return (
         <>
             <HashRouter>

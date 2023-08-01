@@ -1,0 +1,10 @@
+@import "../../styles/StyleVariables";
+
+.badge {
+  background: $primary-color--light;
+  color: $primary-color;
+  font-size: $font-size--main;
+  padding: 3px 8px;
+  border-radius: 6px;
+
+}

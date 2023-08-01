@@ -1,0 +1,27 @@
+@import "../../styles/StyleVariables";
+
+.counter {
+  display: flex;
+  background: $counter-bg;
+  align-items: center;
+  padding: 20px 24px;
+  color: $text-color--header;
+  font-size: $font-size--main;
+  font-weight: bold;
+  border-radius: 6px;
+  justify-content: space-between;
+
+}
+.counter__button {
+  color: $primary-color;
+  display: flex;
+  border: none;
+  background: none;
+  cursor: pointer;
+  &:hover {
+    color: $primary-color--hover;
+  }
+  &:focus {
+    outline: none;
+  }
+}

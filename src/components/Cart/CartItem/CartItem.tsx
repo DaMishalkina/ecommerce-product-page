@@ -28,7 +28,6 @@ export const CartItem = ({
                     <img
                         className="product-item__image"
                         src={image}
-                        // src="src/assets/images/products/FallLimitedEditionSneakers/image-product-1-thumbnail.jpg"
                         alt={`${productName} Image`}
                     />
                 }

@@ -17,6 +17,9 @@
       color: $text-color--header;
       border-bottom: 4px solid $primary-color;
     }
+    &:focus, &:active {
+      outline: none;
+    }
   }
 
 }

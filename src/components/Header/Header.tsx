@@ -4,6 +4,7 @@ import {NavigationList} from "../Navigation/NavigationList/NavigationList";
 import AvatarImage from "../../assets/images/image-avatar.png";
 import {CartComponent} from "../Cart/CartComponent/CartComponent";
 import {CancelIcon} from "../svgs/CancelIcon";
+import {ReactComponent as Logo} from "../../assets/images/logo.svg";
 import "./Header.scss";
 import * as classNames from "classnames";
 
@@ -25,7 +26,9 @@ export const Header = ({
     return (
         <header className="header">
             <div className="header__item">
-                <strong className="header__label">{label}</strong>
+               <p className="header__label">
+                   <Logo title={`${label} Logo Icon`} />
+               </p>
                 {typeof navMenu !== "undefined" && (
                     <>
                         <label
@@ -66,11 +69,13 @@ export const Header = ({
                     cartItemsNumber={cartItemsNumber}
                 />
                 {isLogged && (
-                    <img
-                        className="header__avatar-image"
-                        src={AvatarImage}
-                        alt="Avatar Image"
-                    />
+                    <button className="avatar header__avatar">
+                        <img
+                            className="avatar__image"
+                            src={AvatarImage}
+                            alt="Avatar Image"
+                        />
+                    </button>
                 )}
             </section>
         </header>
