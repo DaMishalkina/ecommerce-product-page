@@ -1,6 +1,6 @@
 import "./ImagesCarousel.scss";
 import {MouseEvent, useEffect, useState} from "react";
-import {DisplaySettingsType, ImageType} from "../../types/types";
+import {DisplaySettingsType, ImageType} from "../../../pages/Product/types/types";
 import {ThumbnailImagesGallery} from "../ThumbnailImagesGallery/ThumbnailImagesGallery";
 import {ActionButtons} from "./ActionButtons/ActionButtons";
 import * as classNames from "classnames";

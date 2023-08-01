@@ -1,5 +1,5 @@
 import "./ThumbnailImage.scss";
-import {ImageType} from "../../../types/types";
+import {ImageType} from "../../../../pages/Product/types/types";
 import * as classNames from "classnames";
 
 interface Props {

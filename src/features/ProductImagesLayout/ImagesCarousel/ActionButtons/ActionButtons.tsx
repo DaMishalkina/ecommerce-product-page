@@ -1,8 +1,8 @@
 import "./ActionButtons.scss";
 import {MouseEvent} from "react";
-import {DisplaySettingsType} from "../../../types/types";
+import {DisplaySettingsType} from "../../../../pages/Product/types/types";
 import * as classNames from "classnames";
-import {ArrowIcon} from "../../../../../components/svgs/ArrowIcon";
+import {ArrowIcon} from "../../../../components/svgs/ArrowIcon";
 
 interface Props {
     handleClick: (event: MouseEvent<HTMLButtonElement>) => void,

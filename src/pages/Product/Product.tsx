@@ -4,11 +4,11 @@ import productCards from "../../data/productCards.json";
 import {ProductCardType} from "../../data/types/types";
 import "./Product.scss";
 import {Modal} from "../../components/Modal/Modal";
-import {ImagesCarousel} from "./components/ImagesCarousel/ImagesCarousel";
+import {ImagesCarousel} from "../../features/ProductImagesLayout/ImagesCarousel/ImagesCarousel";
 import {Button} from "../../components/Button/Button";
 import {CartIcon} from "../../components/svgs/CartIcon";
-import {DiscountBadge} from "./components/DiscountBadge/DiscountBadge";
-import {Counter} from "./components/Counter/Counter";
+import {DiscountBadge} from "../../components/DiscountBadge/DiscountBadge";
+import {Counter} from "../../components/Counter/Counter";
 import productPageContent from "../../data/productPageContent.json";
 
 

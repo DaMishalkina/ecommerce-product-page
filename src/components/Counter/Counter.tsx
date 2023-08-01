@@ -1,7 +1,7 @@
 import "./Counter.scss";
 import {MouseEvent} from "react";
-import {PlusIcon} from "../../../../components/svgs/PlusIcon";
-import {MinusIcon} from "../../../../components/svgs/MinusIcon";
+import {PlusIcon} from "../svgs/PlusIcon";
+import {MinusIcon} from "../svgs/MinusIcon";
 
 interface Props {
     counter: number,
