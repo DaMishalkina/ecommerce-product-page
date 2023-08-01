@@ -11,6 +11,12 @@ ul, li {
     padding: 0;
     margin: 0;
 }
+button {
+    cursor: pointer;
+}
+button:focus {
+    outline: none;
+}
 
 .visually-hidden-title:not(:focus):not(:active) {
     clip: rect(0 0 0 0);
