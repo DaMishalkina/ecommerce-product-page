@@ -2,7 +2,7 @@ import {useState, ReactElement, useEffect} from "react";
 import {NavType} from "../Navigation/types/types";
 import {NavigationList} from "../Navigation/NavigationList/NavigationList";
 import AvatarImage from "../../assets/images/image-avatar.png";
-import {CartComponent} from "../Cart/CartComponent/CartComponent";
+import {CartComponent} from "../Cart/CartComponent";
 import {CancelIcon} from "../svgs/CancelIcon";
 import {ReactComponent as Logo} from "../../assets/images/logo.svg";
 import {useOutsideClick} from "../../hooks/useOutsideClick";

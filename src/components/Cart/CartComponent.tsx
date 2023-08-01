@@ -1,8 +1,8 @@
 import "./CartComponent.scss";
-import {CartButton} from "../CartButton/CartButton";
+import {CartButton} from "./CartButton/CartButton";
 import * as classNames from "classnames";
 import {ReactElement, useState} from "react";
-import {useOutsideClick} from "../../../hooks/useOutsideClick";
+import {useOutsideClick} from "../../hooks/useOutsideClick";
 
 interface Props {
     cartClassName?: string,

@@ -10,8 +10,8 @@ import {CartIcon} from "../../components/svgs/CartIcon";
 import {DiscountBadge} from "../../components/DiscountBadge/DiscountBadge";
 import {Counter} from "../../components/Counter/Counter";
 import productPageContent from "../../data/productPageContent.json";
-
-
+import {useDispatch} from "react-redux";
+import {addProduct} from "../../redux/cartRedux";
 
 
 const products: ProductCardType[] = productCards.productCards;
@@ -23,7 +23,7 @@ export const Product = () => {
     const [product, setProduct] = useState(products.filter(item => item.id.toString() === id)[0]);
     const [isCarouselOpened, setIsCarouselOpened] = useState(false);
     const [sliderTransformationIndex, setSliderTransformationIndex] = useState(0);
-    const [counter, setCounter] = useState(0);
+    const [counter, setCounter] = useState(256);
     const productImages = [...Array(IMAGES_NUMBER).keys()].map(index => {
         const folderName = product.productName.replace(/\s/g, "");
         const src = `src/assets/images/products/${folderName}/image-product-${index + 1}.jpg`;
@@ -34,9 +34,8 @@ export const Product = () => {
             title: product.productName
         }
     })
-    const handleAddButtonClick = () => {
-        setCounter(0);
-    }
+    const dispatch = useDispatch();
+
     const actualPrice = product?.discount
         ? (Number(product?.price) - (Number(product?.price)*Number(product?.discount?.replace(/%/g, ''))/100)).toFixed(2)
         : product?.price;
@@ -44,6 +43,17 @@ export const Product = () => {
         useEffect(() => {
         setProduct(products.filter(item => item.id.toString() === id)[0])
     }, [id])
+    const handleAddButtonClick = () => {
+        dispatch(
+            addProduct({
+                ...product,
+                productActualPrice: actualPrice,
+                productQuantity: counter,
+                image: `src/assets/images/products/${product.productName.replace(/\s/g, '' )}/image-product-1-thumbnail.jpg`
+            })
+        )
+        setCounter(0);
+    }
 
     return (
         <section className="product-section">
@@ -73,7 +83,7 @@ export const Product = () => {
                     </Modal>
                 )}
             </div>
-            <div className="product-item product-section__item">
+            <div className="product-section__item">
                 <div className="product-section__text-block">
                     <p className="product-section__eyebrow">{product?.brandName}</p>
                     <h1 className="product-section__title"> {product?.productName}</h1>
