@@ -1,4 +1,4 @@
-import {useState, ReactElement} from "react";
+import {useState, ReactElement, useEffect} from "react";
 import {NavType} from "../Navigation/types/types";
 import {NavigationList} from "../Navigation/NavigationList/NavigationList";
 import AvatarImage from "../../assets/images/image-avatar.png";
@@ -6,6 +6,7 @@ import {CartComponent} from "../Cart/CartComponent/CartComponent";
 import {CancelIcon} from "../svgs/CancelIcon";
 import {ReactComponent as Logo} from "../../assets/images/logo.svg";
 import {useOutsideClick} from "../../hooks/useOutsideClick";
+import {useLocation} from "react-router-dom";
 import "./Header.scss";
 import * as classNames from "classnames";
 
@@ -24,9 +25,14 @@ export const Header = ({
                            cartItemsNumber = 0,
                            cartDropdown}: Props) => {
     const [isNavigationOpened, setIsNavigationOpened] = useState(false);
+    const {pathname} = useLocation();
     const navigationContainerRef = useOutsideClick(() => {
         setIsNavigationOpened(false);
     })
+    useEffect(() => {
+
+        setIsNavigationOpened(false);
+    }, [pathname])
     return (
         <header className="header">
             <div className="header__item">
