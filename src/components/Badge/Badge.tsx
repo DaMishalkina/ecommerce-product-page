@@ -1,11 +1,14 @@
+import {ReactNode} from "react";
+
 import "./Badge.scss";
 
+
 interface Props {
-    discount: string
+    children: ReactNode
 }
 
-export const Badge = ({discount}: Props) => {
+export const Badge = ({children}: Props) => {
     return (
-        <span className="badge">{discount}</span>
+        <span className="badge">{children}</span>
     )
 }

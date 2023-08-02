@@ -1,0 +1,15 @@
+@import "src/styles/StyleVariables";
+.product-items {
+  display: flex;
+  flex-direction: column;
+  padding-top: 24px;
+}
+
+@media (min-width: $screen--lg) {
+  .product-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding-top: 32px;
+  }
+}

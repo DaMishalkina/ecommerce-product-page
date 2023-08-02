@@ -10,6 +10,7 @@ import {Badge} from "../../components/Badge/Badge";
 import {Button} from "../../components/Button/Button";
 import {CartIcon} from "../../components/svgs/CartIcon";
 import {Counter} from "../../components/Counter/Counter";
+import {getProductActualPrice} from "../../utils/getProductActualPrice";
 import {ImagesCarousel} from "../../features/ProductImagesLayout/ImagesCarousel/ImagesCarousel";
 import {Modal} from "../../components/Modal/Modal";
 
@@ -40,9 +41,7 @@ export const Product = () => {
     })
     const dispatch = useDispatch();
 
-    const actualPrice = product?.discount
-        ? (Number(product?.price) - (Number(product?.price)*Number(product?.discount?.replace(/%/g, ''))/100)).toFixed(2)
-        : product?.price;
+    const actualPrice = getProductActualPrice(product?.price, product?.discount);
 
         useEffect(() => {
         setProduct(products.filter(item => item.id.toString() === id)[0])
@@ -99,7 +98,7 @@ export const Product = () => {
                             CURRENCY + actualPrice
                         }
                         {product?.discount && (
-                           <Badge discount={product?.discount} />
+                           <Badge>{product?.discount}</Badge>
                         )}
                     </p>
                     {product?.discount && (

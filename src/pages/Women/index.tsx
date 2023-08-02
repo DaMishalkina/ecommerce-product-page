@@ -1,8 +1,8 @@
-import {Link} from "react-router-dom";
-
 import productCards from "../../data/productCards.json";
 
 import {MainWrapper} from "../../components/MainWrapper/MainWrapper";
+import {ProductItem} from "../../features/ProductItem/ProductItem";
+import {ProductItemsWrapper} from "../../features/ProductItemsWrapper/ProductItemsWrapper";
 
 import {ProductCardType} from "../../data/types/types";
 
@@ -17,11 +17,11 @@ export const Women = () => {
     const items = filteredBySex(productItems, "women");
     return (
         <MainWrapper header="Woman">
-            {items.map((item, index) => (
-                <div key={index}>
-                    <Link to={`/women/${item.id.toString()}`}>{item.productName}</Link>
-                </div>
-            ))}
+            <ProductItemsWrapper>
+                {items.map((item, index) => (
+                    <ProductItem key={index} item={item} link={`/women/${item.id.toString()}`}/>
+                ))}
+            </ProductItemsWrapper>
         </MainWrapper>
     )
 }

@@ -5,5 +5,5 @@ export type ProductCardType = {
     productDescription:  string,
     price: string,
     discount: string,
-    sex?: "men" | "women"
+    sex?: string
 }

@@ -40,8 +40,8 @@ export const CartItem = ({
                         </span>
                         }
                         <strong className="cart-item__total-price">
-                        {currency + totalPrice}
-                    </strong>
+                            {currency + totalPrice}
+                        </strong>
                     </div>
                 </div>
             </div>
