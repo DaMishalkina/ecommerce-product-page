@@ -110,56 +110,9 @@
   align-items: center;
 }
 
-.header-cart {
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  position: relative;
-  color: $text-color--main;
-  padding: 0;
-  &:hover .header-cart__icon {
-    color: $text-color--hover;
-  }
-  &:focus .header-cart__icon {
-    color: $primary-color;
-  }
-  &:focus {
-    outline: none;
-  }
-}
-
-.header-cart--full {
-  color: $black;
-  &:hover .header-cart__icon, &:focus.header-cart__icon {
-    color: $black--hover;
-  }
-  &:focus .header-cart__icon, &:focus.header-cart__icon {
-    color: $primary-color;
-  }
-}
-
-.header-cart__icon {
-  width: 22px;
-  height: 20px;
-}
-
-.header-cart__counter {
-  position: absolute;
-  bottom: 16px;
-  left: 50%;
-  background: $primary-color;
-  color: $white;
-  border-radius: 20px;
-  width: 20px;
-  height: 14px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 10px;
-}
 .avatar {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   padding: 0;
   border: 2px solid transparent;
   background-clip: padding-box;

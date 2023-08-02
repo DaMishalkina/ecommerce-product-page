@@ -49,7 +49,7 @@ const ProductWrapperComponent = ({
 }
 
 export const ProductItem = ({item, link, currency = "$"}: Props) => {
-    const {productName, productDescription, price, discount} = item;
+    const {productName, price, discount} = item;
     const productActualPrice = getProductActualPrice(price, discount);
     return (
         <ProductWrapperComponent className="product-item" link={link}>
@@ -60,9 +60,6 @@ export const ProductItem = ({item, link, currency = "$"}: Props) => {
             />
             <div className="product-item__info">
                 <p className="product-item__name">{productName}</p>
-                <p className="product-item__description">
-                    {productDescription}
-                </p>
                 <div className="product-item__price-block">
                     <div className="product-item__actual-price">
                         {currency + productActualPrice}

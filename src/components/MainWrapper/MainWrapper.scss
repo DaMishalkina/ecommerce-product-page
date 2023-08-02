@@ -1,6 +1,8 @@
 @import "src/styles/StyleVariables";
 .page__wrapper {
   padding: 24px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .page__header {

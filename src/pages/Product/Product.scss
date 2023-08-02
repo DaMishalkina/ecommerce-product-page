@@ -1,5 +1,6 @@
 @import "src/styles/StyleVariables";
 
+
 .product-images__modal {
   display: none;
 }
@@ -9,6 +10,9 @@
   display: flex;
   flex-direction: column;
   padding: 0 20px 88px 20px;
+}
+.product-images {
+  padding: 0 0 26px 0;
 }
 .product-page__text-block {
   padding-bottom: 40px;

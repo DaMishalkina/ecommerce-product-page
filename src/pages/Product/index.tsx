@@ -109,6 +109,7 @@ export const Product = () => {
                 <div className="product-page__actions">
                    <Counter counter={counter} setCounter={setCounter} />
                     <Button
+                        disabled={counter === 0}
                         onClick={handleAddButtonClick}
                         buttonLabel={productPageContent?.buttonLabel}
                         icon={<CartIcon />}
