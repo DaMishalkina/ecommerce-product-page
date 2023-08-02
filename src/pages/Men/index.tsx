@@ -1,5 +1,8 @@
+import {MainWrapper} from "../../components/MainWrapper/MainWrapper";
 export const Men = () => {
     return (
-        <div>Men</div>
+       <MainWrapper header="Men">
+
+       </MainWrapper>
     )
 }

@@ -1,6 +1,11 @@
-import productCards from "../../data/productCards.json";
-import {ProductCardType} from "../../data/types/types";
 import {Link} from "react-router-dom";
+
+import productCards from "../../data/productCards.json";
+
+import {MainWrapper} from "../../components/MainWrapper/MainWrapper";
+
+import {ProductCardType} from "../../data/types/types";
+
 
 const productItems: ProductCardType[] = productCards.productCards;
 const filteredBySex = (items: ProductCardType[], sex = "women") => {
@@ -11,12 +16,12 @@ const filteredBySex = (items: ProductCardType[], sex = "women") => {
 export const Women = () => {
     const items = filteredBySex(productItems, "women");
     return (
-        <div>
+        <MainWrapper header="Woman">
             {items.map((item, index) => (
                 <div key={index}>
                     <Link to={`/women/${item.id.toString()}`}>{item.productName}</Link>
                 </div>
             ))}
-        </div>
+        </MainWrapper>
     )
 }

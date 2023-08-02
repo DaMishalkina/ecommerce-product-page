@@ -104,5 +104,8 @@
     grid-template-columns: 1fr 2fr;
     gap: 18px;
   }
+  .product-images {
+    flex-grow: 0;
+  }
 
 }

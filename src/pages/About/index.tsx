@@ -1,7 +1,7 @@
-
+import {MainWrapper} from "../../components/MainWrapper/MainWrapper";
 
 export const About = () => {
     return (
-        <main>About</main>
+        <MainWrapper header="About"></MainWrapper>
     )
 }

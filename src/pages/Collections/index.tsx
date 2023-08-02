@@ -1,5 +1,6 @@
+import {MainWrapper} from "../../components/MainWrapper/MainWrapper";
 export const Collections = () => {
     return (
-        <div>Collections</div>
+      <MainWrapper header="Collections"></MainWrapper>
     )
 }

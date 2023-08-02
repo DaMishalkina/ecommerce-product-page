@@ -1,5 +1,6 @@
+import {MainWrapper} from "../../components/MainWrapper/MainWrapper";
 export const Contact = () => {
     return (
-        <div>Contact</div>
+        <MainWrapper header="Contact"></MainWrapper>
     )
 }
