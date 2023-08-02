@@ -1,6 +1,7 @@
-import "./Button.scss";
-import * as classNames from "classnames";
 import {ReactElement} from "react";
+import * as classNames from "classnames";
+
+import "./Button.scss";
 
 interface Props {
     buttonLabel: string,

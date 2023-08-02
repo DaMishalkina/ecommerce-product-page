@@ -1,11 +1,11 @@
 import {RouteItem} from "../types/types";
-import {Home} from "../../../pages/Home/Home";
-import {About} from "../../../pages/About/About";
-import {Collections} from "../../../pages/Collections/Collections";
-import {Men} from "../../../pages/Men/Men";
-import {Contact} from "../../../pages/Contact/Contact";
-import {Women} from "../../../pages/Women/Women";
-import {Product} from "../../../pages/Product/Product";
+import {Home} from "../../../pages/Home";
+import {About} from "../../../pages/About";
+import {Collections} from "../../../pages/Collections";
+import {Men} from "../../../pages/Men";
+import {Contact} from "../../../pages/Contact";
+import {Women} from "../../../pages/Women";
+import {Product} from "../../../pages/Product";
 
 /*PAGES TITLE*/
 export const PAGE_TITLE_HOME = "Home";

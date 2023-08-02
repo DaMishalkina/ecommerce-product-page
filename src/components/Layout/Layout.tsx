@@ -1,11 +1,17 @@
-import {ReactNode, FunctionComponent} from "react"
-import { Header } from "../Header/Header";
+import {FunctionComponent, ReactNode} from "react";
+import {RootState} from "../../redux/store";
+import {useDispatch} from "react-redux";
+import {useSelector} from "react-redux";
+
+import {CartDropdown} from "../../features/Cart/CartDropdown/CartDropdown";
+import {deleteProduct} from "../../redux/cartRedux";
+import {Header} from "../Header/Header";
 import {Outlet} from "react-router-dom";
+
 import layoutContent from "../../data/layoutContent.json";
 import cartContent from "../../data/cartContent.json";
-import {useSelector} from "react-redux";
-import {RootState} from "../../redux/store";
-import {CartDropdown} from "../Cart/CartDropdown/CartDropdown";
+
+
 
 interface Props {
     children?: ReactNode,
@@ -15,6 +21,14 @@ interface Props {
 
 export const Layout:FunctionComponent<Props> = ({children, pageClassName = ""}) => {
     const {products, quantity} = useSelector((state: RootState) => state.cart);
+    const dispatch = useDispatch();
+    const handleDelete = (id: number) => {
+        const deletedProduct = products.find(product => product.id === id);
+        deletedProduct &&
+        dispatch(
+            deleteProduct(deletedProduct)
+        )
+    }
     return (
         <div className={pageClassName}>
             <Header
@@ -24,6 +38,7 @@ export const Layout:FunctionComponent<Props> = ({children, pageClassName = ""}) 
                 cartItemsNumber={quantity}
                 cartDropdown={
                 <CartDropdown
+                    handleProductDelete={(id) => handleDelete(id)}
                     header={cartContent.header}
                     buttonLabel={cartContent.buttonLabel}
                     mainText={cartContent.defaultContent}

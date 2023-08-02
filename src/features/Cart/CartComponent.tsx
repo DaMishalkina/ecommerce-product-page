@@ -1,8 +1,10 @@
-import "./CartComponent.scss";
-import {CartButton} from "./CartButton/CartButton";
-import * as classNames from "classnames";
 import {ReactElement, useState} from "react";
+import * as classNames from "classnames";
+
+import {CartToggle} from "./CartToggle/CartToggle";
 import {useOutsideClick} from "../../hooks/useOutsideClick";
+
+import "./CartComponent.scss";
 
 interface Props {
     cartClassName?: string,
@@ -24,8 +26,8 @@ export const CartComponent = ({
     });
     return (
         <section ref={cartRef} className={classNames(cartClassName, "cart-section")}>
-            <CartButton
-                onClick={toggleCart}
+            <CartToggle
+                onChange={toggleCart}
                 isCartEmpty={cartItemsNumber == 0}
                 cartItemsNumber={cartItemsNumber}
             />

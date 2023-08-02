@@ -1,17 +1,21 @@
+import {useDispatch} from "react-redux";
+import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
-import {useState, useEffect} from "react";
+
 import productCards from "../../data/productCards.json";
-import {ProductCardType} from "../../data/types/types";
-import "./Product.scss";
-import {Modal} from "../../components/Modal/Modal";
-import {ImagesCarousel} from "../../features/ProductImagesLayout/ImagesCarousel/ImagesCarousel";
+import productPageContent from "../../data/productPageContent.json";
+
+import {addProduct} from "../../redux/cartRedux";
+import {Badge} from "../../components/Badge/Badge";
 import {Button} from "../../components/Button/Button";
 import {CartIcon} from "../../components/svgs/CartIcon";
-import {DiscountBadge} from "../../components/DiscountBadge/DiscountBadge";
 import {Counter} from "../../components/Counter/Counter";
-import productPageContent from "../../data/productPageContent.json";
-import {useDispatch} from "react-redux";
-import {addProduct} from "../../redux/cartRedux";
+import {ImagesCarousel} from "../../features/ProductImagesLayout/ImagesCarousel/ImagesCarousel";
+import {Modal} from "../../components/Modal/Modal";
+
+import {ProductCardType} from "../../data/types/types";
+
+import "./Product.scss";
 
 
 const products: ProductCardType[] = productCards.productCards;
@@ -95,7 +99,7 @@ export const Product = () => {
                             CURRENCY + actualPrice
                         }
                         {product?.discount && (
-                           <DiscountBadge discount={product?.discount} />
+                           <Badge discount={product?.discount} />
                         )}
                     </p>
                     {product?.discount && (

@@ -1,5 +1,7 @@
-import {NavigationItem} from "../NavigationItem/NavigationItem";
-import {NavType} from "../types/types";
+import {NavigationItem} from "./NavigationItem/NavigationItem";
+
+import {NavType} from "./types/types";
+
 import "./NavigationList.scss"
 
 interface Props {

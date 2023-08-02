@@ -1,11 +1,10 @@
 import "./App.css"
 // import {Header} from "./components/Header/Header";
 import {Layout} from "./components/Layout/Layout";
-import { Route, Routes, HashRouter } from "react-router-dom";
-import { ROUTES } from "./components/Navigation/constants/constants";
+import {HashRouter, Route, Routes} from "react-router-dom";
+import {ROUTES} from "./components/Navigation/constants/constants";
 
 import {RouteItem} from "./components/Navigation/types/types";
-
 
 
 // const productItems: ProductCardType[] = productCards.productCards;

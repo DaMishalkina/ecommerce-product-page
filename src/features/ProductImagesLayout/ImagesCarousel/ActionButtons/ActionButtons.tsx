@@ -1,8 +1,11 @@
-import "./ActionButtons.scss";
 import {MouseEvent} from "react";
-import {DisplaySettingsType} from "../../../../pages/Product/types/types";
 import * as classNames from "classnames";
+
 import {ArrowIcon} from "../../../../components/svgs/ArrowIcon";
+
+import {DisplaySettingsType} from "../../../../pages/Product/types/types";
+
+import "./ActionButtons.scss";
 
 interface Props {
     handleClick: (event: MouseEvent<HTMLButtonElement>) => void,
@@ -34,7 +37,8 @@ export const ActionButtons = ({
                        button === PREV ? "button--prev" : "button--next"
                    )}
                >
-                   <ArrowIcon color="currentColor" title={`${button} Arrow Icon`} />
+                   <span className="visually-hidden-title">{`${button} Image CLick`}</span>
+                   <ArrowIcon title={`${button} Arrow Icon`} />
 
                </button>
            ))}

@@ -1,35 +1,37 @@
-@import "src/styles/StyleVariables";
-.cart-button {
-  border: none;
-  background: transparent;
+@import "../../../styles/StyleVariables";
+.cart-toggle {
   cursor: pointer;
   position: relative;
   color: $text-color--main;
   padding: 0;
-  &:hover .cart-button__icon {
+  &:hover .cart-toggle__icon {
     color: $text-color--header;
   }
-  &:focus .cart-button__icon, &:active .cart-button__icon {
+  &:focus .cart-toggle__icon, &:active .cart-toggle__icon {
     color: $primary-color;
-  }
-  &:focus {
-    outline: none;
   }
 }
 
-.cart-button--filled-cart {
+.cart-toggle__input {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+}
+
+.cart-toggle--filled-cart {
   color: $text-color--header;
-  &:focus .cart-button__icon{
+  &:focus .cart-toggle__icon{
     color: $primary-color;
   }
 }
 
-.cart-button__icon {
+.cart-toggle__icon {
   width: 22px;
   height: 20px;
 }
 
-.cart-button__counter {
+.cart-toggle__counter {
   position: absolute;
   bottom: 16px;
   left: 50%;

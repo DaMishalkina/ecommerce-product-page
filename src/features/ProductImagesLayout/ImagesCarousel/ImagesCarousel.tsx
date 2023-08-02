@@ -1,9 +1,12 @@
-import "./ImagesCarousel.scss";
 import {MouseEvent, useEffect, useState} from "react";
-import {DisplaySettingsType, ImageType} from "../../../pages/Product/types/types";
-import {ThumbnailImagesGallery} from "../ThumbnailImagesGallery/ThumbnailImagesGallery";
-import {ActionButtons} from "./ActionButtons/ActionButtons";
 import * as classNames from "classnames";
+
+import {ActionButtons} from "./ActionButtons/ActionButtons";
+import {ThumbnailImagesGallery} from "../ThumbnailImagesGallery/ThumbnailImagesGallery";
+
+import {DisplaySettingsType, ImageType} from "../../../pages/Product/types/types";
+
+import "./ImagesCarousel.scss";
 
 interface Props {
     images: ImageType[],

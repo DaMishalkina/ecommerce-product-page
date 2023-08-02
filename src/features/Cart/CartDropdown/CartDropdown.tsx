@@ -1,12 +1,16 @@
-import "./CartDropdown.scss";
-import {CartItemType} from "../types/types";
 import * as classNames from "classnames";
-import {CartItem} from "../CartItem/CartItem";
-import {Button} from "../../Button/Button";
+
+import {Button} from "../../../components/Button/Button";
+import {CartItem} from "./CartItem/CartItem";
+
+import {CartItemType} from "../types/types";
+
+import "./CartDropdown.scss";
 
 interface Props {
     header: string,
     productItems?: CartItemType[],
+    handleProductDelete?: (id: number) => void,
     buttonLabel?: string,
     mainText?: string,
     currency?: string
@@ -21,7 +25,8 @@ export const CartDropdown = ({
                                  mainText = "",
                                  productItems = [],
                                  buttonLabel = "Checkout",
-                                 currency = "$"}: Props) => {
+                                 currency = "$",
+                                 handleProductDelete}: Props) => {
     return (
         <section className="cart">
             <p className="cart__header">{header}</p>
@@ -32,6 +37,8 @@ export const CartDropdown = ({
                     <div className="cart-content__item">
                         { productItems?.map((product, index) =>(
                             <CartItem
+                                handleItemDelete={(id) =>
+                                    handleProductDelete && handleProductDelete(id)}
                                 item={product}
                                 key={index}
                                 currency={currency} />
