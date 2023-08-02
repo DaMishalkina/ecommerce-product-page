@@ -1,20 +1,21 @@
-import {RouteItem} from "../types/types";
-import {Home} from "../../../pages/Home";
 import {About} from "../../../pages/About";
 import {Collections} from "../../../pages/Collections";
-import {Men} from "../../../pages/Men";
 import {Contact} from "../../../pages/Contact";
-import {Women} from "../../../pages/Women";
+import {Home} from "../../../pages/Home";
+import {Men} from "../../../pages/Men";
 import {Product} from "../../../pages/Product";
+import {Women} from "../../../pages/Women";
+
+import {RouteItem} from "../types/types";
 
 /*PAGES TITLE*/
-export const PAGE_TITLE_HOME = "Home";
 export const PAGE_TITLE_ABOUT = "About";
-export const PAGE_TITLE_CONTACT = "Contact";
-export const PAGE_TITLE_WOMEN = "Women";
-export const PAGE_TITLE_MEN = "Men";
 export const PAGE_TITLE_COLLECTIONS = "Collections";
+export const PAGE_TITLE_CONTACT = "Contact";
+export const PAGE_TITLE_HOME = "Home";
+export const PAGE_TITLE_MEN = "Men";
 export const PAGE_TITLE_PRODUCT = "Product";
+export const PAGE_TITLE_WOMEN = "Women";
 
 export const ROUTES: Array<RouteItem> = [
     {

@@ -1,4 +1,4 @@
-import {FunctionComponent, ReactNode} from "react";
+import {FunctionComponent} from "react";
 import {RootState} from "../../redux/store";
 import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
@@ -14,12 +14,11 @@ import cartContent from "../../data/cartContent.json";
 
 
 interface Props {
-    children?: ReactNode,
     pageClassName?: string
 }
 
 
-export const Layout:FunctionComponent<Props> = ({children, pageClassName = ""}) => {
+export const Layout:FunctionComponent<Props> = ({pageClassName = ""}) => {
     const {products, quantity} = useSelector((state: RootState) => state.cart);
     const dispatch = useDispatch();
     const handleDelete = (id: number) => {
@@ -46,9 +45,6 @@ export const Layout:FunctionComponent<Props> = ({children, pageClassName = ""}) 
                 />
             }
             />
-            <main>
-                {children}
-            </main>
             <Outlet/>
         </div>
     )

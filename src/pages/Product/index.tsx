@@ -60,8 +60,8 @@ export const Product = () => {
     }
 
     return (
-        <section className="product-section">
-            <div className="product-images product-section__item">
+        <main className="product-page">
+            <div className="product-images product-page__item">
                 <ImagesCarousel
                     defaultSliderTransformationIndex={sliderTransformationIndex}
                     handleCarouselImageClick={(index) => {
@@ -87,14 +87,14 @@ export const Product = () => {
                     </Modal>
                 )}
             </div>
-            <div className="product-section__item">
-                <div className="product-section__text-block">
-                    <p className="product-section__eyebrow">{product?.brandName}</p>
-                    <h1 className="product-section__title"> {product?.productName}</h1>
-                    <p className="product-section__description">{product?.productDescription}</p>
+            <div className="product-page__item">
+                <div className="product-page__text-block">
+                    <p className="product-page__eyebrow">{product?.brandName}</p>
+                    <h1 className="product-page__title"> {product?.productName}</h1>
+                    <p className="product-page__description">{product?.productDescription}</p>
                 </div>
-                <div className="product-section__price-block">
-                    <p className="product-section__actual-price">
+                <div className="product-page__price-block">
+                    <p className="product-page__actual-price">
                         {
                             CURRENCY + actualPrice
                         }
@@ -103,10 +103,10 @@ export const Product = () => {
                         )}
                     </p>
                     {product?.discount && (
-                        <p className="product-section__price">{CURRENCY + product?.price}</p>
+                        <p className="product-page__price">{CURRENCY + product?.price}</p>
                     )}
                 </div>
-                <div className="product-section__actions">
+                <div className="product-page__actions">
                    <Counter counter={counter} setCounter={setCounter} />
                     <Button
                         onClick={handleAddButtonClick}
@@ -115,6 +115,6 @@ export const Product = () => {
                     />
                 </div>
             </div>
-        </section>
+        </main>
     )
 }
