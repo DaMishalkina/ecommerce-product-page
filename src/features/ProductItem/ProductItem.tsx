@@ -16,6 +16,8 @@ interface Props {
     currency?: string
 }
 
+const IMAGES = import.meta.glob('@assets/products/*/*.{png,jpg,jpeg,PNG,JPEG}', { eager: true, as: 'url' });
+
 interface ProductWrapperComponentProps {
     link?: string,
     children?: ReactNode,
@@ -54,7 +56,7 @@ export const ProductItem = ({item, link, currency = "$"}: Props) => {
             <img
                 alt={productName}
                 className="product-item__image"
-                src={`/images/products/${productName.replace(/\s/g, '' )}/image-product-1.jpg`}
+                src={IMAGES[`/src/assets/products/${productName.replace(/\s/g, '' )}/image-product-1.jpg`]}
             />
             <div className="product-item__info">
                 <p className="product-item__name">{productName}</p>

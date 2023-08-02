@@ -22,6 +22,7 @@ import "./Product.scss";
 const products: ProductCardType[] = productCards.productCards;
 const IMAGES_NUMBER = 4;
 const CURRENCY = "$";
+const IMAGES = import.meta.glob('@assets/products/*/*.{png,jpg,jpeg,PNG,JPEG}', { eager: true, as: 'url' });
 
 export const Product = () => {
     const {id} = useParams();
@@ -31,8 +32,8 @@ export const Product = () => {
     const [counter, setCounter] = useState(0);
     const productImages = [...Array(IMAGES_NUMBER).keys()].map(index => {
         const folderName = product.productName.replace(/\s/g, "");
-        const src = `/images/products/${folderName}/image-product-${index + 1}.jpg`;
-        const thumbnailSrc = `/images/products/${folderName}/image-product-${index + 1}-thumbnail.jpg`;
+        const src = IMAGES[`/src/assets/products/${folderName}/image-product-${index + 1}.jpg`];
+        const thumbnailSrc = IMAGES[`/src/assets/products/${folderName}/image-product-${index + 1}-thumbnail.jpg`];
         return {
             thumbnailSource: thumbnailSrc,
             source: src,
@@ -52,7 +53,7 @@ export const Product = () => {
                 ...product,
                 productActualPrice: actualPrice,
                 productQuantity: counter,
-                image: `/images/products/${product.productName.replace(/\s/g, '' )}/image-product-1-thumbnail.jpg`
+                image: IMAGES[`/src/assets/products/${product.productName.replace(/\s/g, '' )}/image-product-1-thumbnail.jpg`]
             })
         )
         setCounter(0);
