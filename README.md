@@ -54,13 +54,13 @@ Unforunately, it did not work for me. So I have found following solution.
 
 I have placed my images in src/assets folder, then imported all product images:
 
-```
+```js
 const IMAGES = import.meta.glob('@assets/products/*/*.{png,jpg,jpeg,PNG,JPEG}', { eager: true, as: 'url' });
 ```
 
 I have used key in order to acsses source of a particular image:
 
-```
+```js
 const src = IMAGES[`/src/assets/products/${folderName}/image-product-${index + 1}.jpg`];
 ```
 
