@@ -1,8 +1,10 @@
-import "./Modal.scss";
 import {ReactNode, useEffect} from "react";
+import * as classNames from "classnames";
+
 import {CancelIcon} from "../svgs/CancelIcon";
 import {useOutsideClick} from "../../hooks/useOutsideClick";
-import * as classNames from "classnames";
+
+import "./Modal.scss";
 
 interface Props {
     isOpened: boolean,
@@ -27,8 +29,13 @@ export const Modal = ({setIsOpened, children, className = "", isOpened}: Props) 
     return (
         <div className={classNames("modal__wrapper", className)}>
             <div ref={modalRef} className="modal__container">
-                <button className="modal__close-button" onClick={handleClose}>
-                    <CancelIcon color="currentColor" />
+                <button
+                    className="modal__close-button"
+                    onClick={handleClose}
+                >
+                    <span className="visually-hidden-title">Close Modal Button</span>
+
+                    <CancelIcon />
                 </button>
                 {children}
             </div>

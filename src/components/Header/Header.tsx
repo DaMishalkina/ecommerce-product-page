@@ -1,14 +1,19 @@
-import {useState, ReactElement, useEffect} from "react";
-import {NavType} from "../Navigation/types/types";
-import {NavigationList} from "../Navigation/NavigationList/NavigationList";
-import AvatarImage from "../../assets/images/image-avatar.png";
-import {CartComponent} from "../Cart/CartComponent";
-import {CancelIcon} from "../svgs/CancelIcon";
-import {ReactComponent as Logo} from "../../assets/images/logo.svg";
-import {useOutsideClick} from "../../hooks/useOutsideClick";
+import {Link} from "react-router-dom";
+import {ReactElement, useEffect, useState} from "react";
 import {useLocation} from "react-router-dom";
-import "./Header.scss";
 import * as classNames from "classnames";
+
+import {CancelIcon} from "../svgs/CancelIcon";
+import {CartComponent} from "../../features/Cart/CartComponent";
+import {NavigationList} from "../Navigation/NavigationList";
+import {useOutsideClick} from "../../hooks/useOutsideClick";
+
+import {NavType} from "../Navigation/types/types";
+
+import {ReactComponent as Logo} from "../../assets/images/logo.svg";
+import AvatarImage from "../../assets/images/image-avatar.png";
+
+import "./Header.scss";
 
 interface Props {
     label: string,
@@ -36,9 +41,9 @@ export const Header = ({
     return (
         <header className="header">
             <div className="header__item">
-               <p className="header__label">
+               <Link className="header__label" to="/">
                    <Logo title={`${label} Logo Icon`} />
-               </p>
+               </Link>
                 {typeof navMenu !== "undefined" && (
                     <>
                         <label
@@ -69,7 +74,6 @@ export const Header = ({
                                 >
                                     <CancelIcon
                                         className="header-navigation__icon"
-                                        color="currentColor"
                                     />
                                 </button>
                                 <NavigationList navMenu={navMenu} />
@@ -90,6 +94,9 @@ export const Header = ({
                             src={AvatarImage}
                             alt="Avatar Image"
                         />
+                        <span className="visually-hidden-title avatar__hidden-title">
+                            Me
+                        </span>
                     </button>
                 )}
             </section>

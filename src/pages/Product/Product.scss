@@ -4,16 +4,16 @@
   display: none;
 }
 
-.product-section__item {
+.product-page__item {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  padding: 26px 20px 88px 20px;
+  padding: 0 20px 88px 20px;
 }
-.product-section__text-block {
+.product-page__text-block {
   padding-bottom: 40px;
 }
-.product-section__eyebrow {
+.product-page__eyebrow {
   color: $primary-color;
   text-transform: uppercase;
   font-weight: bold;
@@ -21,24 +21,24 @@
   letter-spacing: 4px;
   margin-bottom: 22px;
 }
-.product-section__title {
+.product-page__title {
   color: $text-color--header;
   margin: 0 0 30px 0;
   font-size: $font-size--h1;
 }
-.product-section__description {
+.product-page__description {
   color: $text-color--main;
   font-size: $font-size--main;
 }
 
-.product-section__price-block {
+.product-page__price-block {
   margin-bottom: 33px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.product-section__actual-price {
+.product-page__actual-price {
   display: flex;
   align-items: center;
   gap: 30px;
@@ -47,13 +47,13 @@
   font-weight: bold;
 }
 
-.product-section__price {
+.product-page__price {
   color: $text-color--hover;
   font-weight: bold;
   text-decoration: line-through;
 }
 
-.product-section__actions {
+.product-page__actions {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -65,7 +65,7 @@
   .product-images__modal {
     display: block;
   }
-  .product-section {
+  .product-page {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -73,13 +73,13 @@
     margin: 0 auto;
     padding: 90px 50px;
   }
-  .product-section__item {
+  .product-page__item {
     max-width: 50%;
     padding: 0;
     flex-shrink: 0;
     flex-grow: 1;
   }
-  .product-section__text-block {
+  .product-page__text-block {
     display: inline-block;
     padding-bottom: 35px;
     max-width: 424px;
@@ -87,22 +87,25 @@
     text-overflow: ellipsis;
   }
 
-  .product-section__title {
+  .product-page__title {
     font-size: 34px;
   }
-  .product-section__price-block {
+  .product-page__price-block {
     flex-direction: column;
     gap: 17px;
     align-items: flex-start;
     width: 100%;
   }
-  .product-section__actual-price {
+  .product-page__actual-price {
     gap: 18px;
   }
-  .product-section__actions {
+  .product-page__actions {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 18px;
+  }
+  .product-images {
+    flex-grow: 0;
   }
 
 }

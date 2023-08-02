@@ -1,7 +1,10 @@
-import "./Counter.scss";
 import {MouseEvent} from "react";
-import {PlusIcon} from "../svgs/PlusIcon";
+
 import {MinusIcon} from "../svgs/MinusIcon";
+import {PlusIcon} from "../svgs/PlusIcon";
+
+
+import "./Counter.scss";
 
 interface Props {
     counter: number,
@@ -29,7 +32,8 @@ export const Counter = ({counter, setCounter}: Props) => {
                 className="counter__button"
                 onClick={(event) => handleCounterClick(event)}
             >
-                <MinusIcon color="currentColor" />
+                <span className="visually-hidden-title">{`${DECREASE} Button`}</span>
+                <MinusIcon />
             </button>
             <span>{counter}</span>
             <button
@@ -37,7 +41,8 @@ export const Counter = ({counter, setCounter}: Props) => {
                 className="counter__button"
                 onClick={(event) => handleCounterClick(event)}
             >
-                <PlusIcon color="currentColor" />
+                <span className="visually-hidden-title">{`${INCREASE} Button`}</span>
+                <PlusIcon/>
             </button>
         </div>
     )

@@ -1,20 +1,21 @@
+import {About} from "../../../pages/About";
+import {Collections} from "../../../pages/Collections";
+import {Contact} from "../../../pages/Contact";
+import {Home} from "../../../pages/Home";
+import {Men} from "../../../pages/Men";
+import {Product} from "../../../pages/Product";
+import {Women} from "../../../pages/Women";
+
 import {RouteItem} from "../types/types";
-import {Home} from "../../../pages/Home/Home";
-import {About} from "../../../pages/About/About";
-import {Collections} from "../../../pages/Collections/Collections";
-import {Men} from "../../../pages/Men/Men";
-import {Contact} from "../../../pages/Contact/Contact";
-import {Women} from "../../../pages/Women/Women";
-import {Product} from "../../../pages/Product/Product";
 
 /*PAGES TITLE*/
-export const PAGE_TITLE_HOME = "Home";
 export const PAGE_TITLE_ABOUT = "About";
-export const PAGE_TITLE_CONTACT = "Contact";
-export const PAGE_TITLE_WOMEN = "Women";
-export const PAGE_TITLE_MEN = "Men";
 export const PAGE_TITLE_COLLECTIONS = "Collections";
+export const PAGE_TITLE_CONTACT = "Contact";
+export const PAGE_TITLE_HOME = "Home";
+export const PAGE_TITLE_MEN = "Men";
 export const PAGE_TITLE_PRODUCT = "Product";
+export const PAGE_TITLE_WOMEN = "Women";
 
 export const ROUTES: Array<RouteItem> = [
     {

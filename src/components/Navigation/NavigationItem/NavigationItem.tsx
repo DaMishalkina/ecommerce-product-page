@@ -1,5 +1,7 @@
-import {NavItemType} from "../types/types";
 import {Link} from "react-router-dom";
+
+import {NavItemType} from "../types/types";
+
 import "./NavigationItem.scss"
 
 interface Props {

@@ -1,0 +1,19 @@
+@import "src/styles/StyleVariables";
+.page__wrapper {
+  padding: 24px 20px;
+}
+
+.page__header {
+  color: $text-color--header;
+  font-size: $font-size--h1;
+  font-weight: bold;
+}
+
+@media (min-width: $screen--lg) {
+  .page__wrapper {
+    padding: 90px 50px;
+  }
+  .page__header {
+    font-size: 34px;
+  }
+}
