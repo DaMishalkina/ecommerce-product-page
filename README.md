@@ -72,5 +72,6 @@ This solution seems to me not perfect at all, but I hope to find out, how to fix
 
 ### Continued development
 
-I want to try Zustand instead of Redux as the first one seems more appropriate to me for such a small app without authentication. Perhaps I could add authentication functionality and then dive deeper into the Redux world.
+- I want to try Zustand instead of Redux as the first one seems more appropriate to me for such a small app without authentication. Perhaps I could add authentication functionality and then dive deeper into the Redux world.
+- Maybe I could add some tests and use React perfomance optimization techinques, such as memoiziation and lazy loading.
 
