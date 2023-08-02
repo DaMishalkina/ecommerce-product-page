@@ -54,7 +54,7 @@ export const ProductItem = ({item, link, currency = "$"}: Props) => {
             <img
                 alt={productName}
                 className="product-item__image"
-                src={`/assets/images/products/${productName.replace(/\s/g, '' )}/image-product-1.jpg`}
+                src={`assets/images/products/${productName.replace(/\s/g, '' )}/image-product-1.jpg`}
             />
             <div className="product-item__info">
                 <p className="product-item__name">{productName}</p>
