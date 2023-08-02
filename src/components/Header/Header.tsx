@@ -10,8 +10,8 @@ import {useOutsideClick} from "../../hooks/useOutsideClick";
 
 import {NavType} from "../Navigation/types/types";
 
-import {ReactComponent as Logo} from "../../../public/assets/images/logo.svg";
-import AvatarImage from "../../../public/assets/images/image-avatar.png";
+import {ReactComponent as Logo} from "../../../public/images/logo.svg";
+import AvatarImage from "../../../public/images/image-avatar.png";
 
 import "./Header.scss";
 

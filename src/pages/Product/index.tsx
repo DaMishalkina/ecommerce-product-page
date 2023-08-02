@@ -31,8 +31,8 @@ export const Product = () => {
     const [counter, setCounter] = useState(0);
     const productImages = [...Array(IMAGES_NUMBER).keys()].map(index => {
         const folderName = product.productName.replace(/\s/g, "");
-        const src = `assets/images/products/${folderName}/image-product-${index + 1}.jpg`;
-        const thumbnailSrc = `assets/images/products/${folderName}/image-product-${index + 1}-thumbnail.jpg`;
+        const src = `/images/products/${folderName}/image-product-${index + 1}.jpg`;
+        const thumbnailSrc = `/images/products/${folderName}/image-product-${index + 1}-thumbnail.jpg`;
         return {
             thumbnailSource: thumbnailSrc,
             source: src,
@@ -52,7 +52,7 @@ export const Product = () => {
                 ...product,
                 productActualPrice: actualPrice,
                 productQuantity: counter,
-                image: `assets/images/products/${product.productName.replace(/\s/g, '' )}/image-product-1-thumbnail.jpg`
+                image: `/images/products/${product.productName.replace(/\s/g, '' )}/image-product-1-thumbnail.jpg`
             })
         )
         setCounter(0);
