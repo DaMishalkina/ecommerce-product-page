@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom";
 import {ReactElement, useEffect, useState} from "react";
 import {useLocation} from "react-router-dom";
 import * as classNames from "classnames";
@@ -40,9 +41,9 @@ export const Header = ({
     return (
         <header className="header">
             <div className="header__item">
-               <p className="header__label">
+               <Link className="header__label" to="/">
                    <Logo title={`${label} Logo Icon`} />
-               </p>
+               </Link>
                 {typeof navMenu !== "undefined" && (
                     <>
                         <label
