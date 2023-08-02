@@ -1,5 +1,5 @@
 import {MouseEvent, useEffect, useState} from "react";
-import * as classNames from "classnames";
+import classNames from "classnames";
 
 import {ActionButtons} from "./ActionButtons/ActionButtons";
 import {ThumbnailImagesGallery} from "../ThumbnailImagesGallery/ThumbnailImagesGallery";

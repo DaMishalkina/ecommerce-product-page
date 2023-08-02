@@ -1,5 +1,5 @@
 import {MouseEvent} from "react";
-import * as classNames from "classnames";
+import classNames from "classnames";
 
 import {ArrowIcon} from "../../../../components/svgs/ArrowIcon";
 

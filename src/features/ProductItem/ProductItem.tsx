@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 import {ReactNode} from "react";
-import * as classNames from "classnames";
+import classNames from "classnames";
 
 import {Badge} from "../../components/Badge/Badge";
 import {getProductActualPrice} from "../../utils/getProductActualPrice";
@@ -54,7 +54,7 @@ export const ProductItem = ({item, link, currency = "$"}: Props) => {
             <img
                 alt={productName}
                 className="product-item__image"
-                src={`src/assets/images/products/${productName.replace(/\s/g, '' )}/image-product-1.jpg`}
+                src={`/assets/images/products/${productName.replace(/\s/g, '' )}/image-product-1.jpg`}
             />
             <div className="product-item__info">
                 <p className="product-item__name">{productName}</p>

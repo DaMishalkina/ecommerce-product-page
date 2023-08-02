@@ -1,5 +1,5 @@
 import {ReactNode, useEffect} from "react";
-import * as classNames from "classnames";
+import classNames from "classnames";
 
 import {CancelIcon} from "../svgs/CancelIcon";
 import {useOutsideClick} from "../../hooks/useOutsideClick";

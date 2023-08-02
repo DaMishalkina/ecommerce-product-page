@@ -1,4 +1,4 @@
-import * as classNames from "classnames";
+import classNames from "classnames";
 
 import {Button} from "../../../components/Button/Button";
 import {CartItem} from "./CartItem/CartItem";

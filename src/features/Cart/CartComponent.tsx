@@ -1,5 +1,5 @@
 import {ReactElement, useState} from "react";
-import * as classNames from "classnames";
+import classNames from "classnames";
 
 import {CartToggle} from "./CartToggle/CartToggle";
 import {useOutsideClick} from "../../hooks/useOutsideClick";

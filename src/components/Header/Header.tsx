@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
 import {ReactElement, useEffect, useState} from "react";
 import {useLocation} from "react-router-dom";
-import * as classNames from "classnames";
+import classNames from "classnames";
 
 import {CancelIcon} from "../svgs/CancelIcon";
 import {CartComponent} from "../../features/Cart/CartComponent";
@@ -10,8 +10,8 @@ import {useOutsideClick} from "../../hooks/useOutsideClick";
 
 import {NavType} from "../Navigation/types/types";
 
-import {ReactComponent as Logo} from "../../assets/images/logo.svg";
-import AvatarImage from "../../assets/images/image-avatar.png";
+import {ReactComponent as Logo} from "../../../public/assets/images/logo.svg";
+import AvatarImage from "../../../public/assets/images/image-avatar.png";
 
 import "./Header.scss";
 

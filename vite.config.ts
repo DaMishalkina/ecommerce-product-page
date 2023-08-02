@@ -2,11 +2,14 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [react(), svgr()],
-  base: process.env.NODE_ENV === "production" ?
-      "/ecommerce-product-page/"
-      : ""
-
-})
+export default ({ mode }) => {
+  return defineConfig({
+    plugins: [react(), svgr()],
+    define: {
+      "process.env.NODE_ENV": `"${mode}"`,
+    },
+    base: process.env.NODE_ENV === "production" ?
+        "/ecommerce-product-page/"
+        : ""
+  })
+}
